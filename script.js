@@ -36,6 +36,7 @@ const updateStats = () => {
 };
 
 const updateRadioOption = (index, score) => {
+  // select the option and display current score
   scoreInputs[index].disabled = false;
   scoreInputs[index].value = score;
   scoreSpans[index].textContent = `, score = ${score}`;
@@ -50,7 +51,7 @@ const updateScore = (selectedValue, achieved) => {
 
 const getHighestDuplicates = (arr) => {
   const counts = {};
-  // organize the numbers and their freguency in key/value pair
+  // organize the numbers and the count in key/value pair
   for (const num of arr) {
     if (counts[num]) {
       counts[num]++;
@@ -135,6 +136,7 @@ const resetGame = () => {
 };
 
 const checkForStraights = (arr) => {
+  // sort the array and join them to match the straights
   const sortedNumbersArr = arr.sort((a, b) => a - b);
   const uniqueNumbersArr = [...new Set(sortedNumbersArr)].join("");
 
