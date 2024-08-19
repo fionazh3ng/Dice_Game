@@ -19,6 +19,7 @@ let rolls = 0;
 const rollDice = () => {
   diceValuesArr = [];
 
+  // get random 5 numbers between 1 and 6
   for (let i = 0; i < 5; i++) {
     const randomDice = Math.floor(Math.random() * 6) + 1;
     diceValuesArr.push(randomDice);
@@ -49,7 +50,7 @@ const updateScore = (selectedValue, achieved) => {
 
 const getHighestDuplicates = (arr) => {
   const counts = {};
-
+  // organize the numbers and their freguency in key/value pair
   for (const num of arr) {
     if (counts[num]) {
       counts[num]++;
@@ -63,9 +64,11 @@ const getHighestDuplicates = (arr) => {
   for (const num of arr) {
     const count = counts[num];
     if (count >= 3 && count > highestCount) {
+      // three of a kind
       highestCount = count;
     }
     if (count >= 4 && count > highestCount) {
+      // four of a kind
       highestCount = count;
     }
   }
@@ -94,6 +97,7 @@ const detectFullHouse = (arr) => {
   const hasPair = Object.values(counts).includes(2);
 
   if (hasThreeOfAKind && hasPair) {
+    // full house
     updateRadioOption(2, 25);
   }
 
